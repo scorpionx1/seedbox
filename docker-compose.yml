@@ -92,7 +92,7 @@ services:
             - 'traefik.enable=true'
     
     sonarr:
-        image: linuxserver/sonarr:preview
+        image: linuxserver/sonarr #:preview
         container_name: sonarr
         restart: always
         networks:
@@ -154,7 +154,7 @@ services:
             - 'traefik.enable=true'
 
     lidarr:
-        image: linuxserver/lidarr:preview
+        image: linuxserver/lidarr #:preview
         container_name: lidarr
         restart: always
         networks:
@@ -211,33 +211,33 @@ services:
             - 'traefik.frontend.auth.basic.users=${HTTP_USER}:${HTTP_PASSWORD}'
             - 'traefik.enable=true'
 
-    nextcloud:
-        image: wonderfall/nextcloud
-        container_name: nextcloud
-        restart: always
-        networks:
-            - web
-        volumes:
-            - confignextcloud:/config
-            - nextclouddata:/data
-            - torrents:/torrents
-            - config:/seedbox-config
-        environment:
-            - GID=${PGID}
-            - UID=${PUID}
-            - TZ=${TZ}
-            - ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
-            - ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
-            - DOMAIN=nextcloud.${TRAEFIK_DOMAIN}
-            - DB_TYPE=sqlite3
-            - DB_NAME=${NEXTCLOUD_DB_NAME}
-            - DB_USER=${NEXTCLOUD_DB_USER}
-            - DB_PASSWORD=${NEXTCLOUD_DB_PASSWORD}
-        labels:
-            - 'traefik.backend=nextcloud'
-            - 'traefik.port=8888'
-            - 'traefik.frontend.rule=Host:nextcloud.${TRAEFIK_DOMAIN}'
-            - 'traefik.enable=true'
+#    nextcloud:
+#        image: wonderfall/nextcloud
+#        container_name: nextcloud
+#        restart: always
+#        networks:
+#            - web
+#        volumes:
+#            - confignextcloud:/config
+#            - nextclouddata:/data
+#            - torrents:/torrents
+#            - config:/seedbox-config
+#        environment:
+#            - GID=${PGID}
+#            - UID=${PUID}
+#            - TZ=${TZ}
+#            - ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
+#            - ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
+#            - DOMAIN=nextcloud.${TRAEFIK_DOMAIN}
+#            - DB_TYPE=sqlite3
+#            - DB_NAME=${NEXTCLOUD_DB_NAME}
+#            - DB_USER=${NEXTCLOUD_DB_USER}
+#            - DB_PASSWORD=${NEXTCLOUD_DB_PASSWORD}
+#        labels:
+#            - 'traefik.backend=nextcloud'
+#            - 'traefik.port=8888'
+#            - 'traefik.frontend.rule=Host:nextcloud.${TRAEFIK_DOMAIN}'
+#            - 'traefik.enable=true'
 
     portainer:
         image: portainer/portainer
@@ -277,39 +277,39 @@ services:
             - 'traefik.frontend.rule=Host:netdata.${TRAEFIK_DOMAIN}'
             - 'traefik.frontend.auth.basic.users=${HTTP_USER}:${HTTP_PASSWORD}'
             - 'traefik.enable=true'
-
-    duplicati:
-        image: linuxserver/duplicati
-        container_name: duplicati
-        restart: unless-stopped
-        networks:
-            - web
-        environment:
-            - PUID=${PUID}
-            - PGID=${PGID}
-            - TZ=${TZ}
-        volumes:
-            - configduplicati:/config
-            - backups:/backups
-            - alldata:/source
-        labels:
-            - 'traefik.backend=duplicati'
-            - 'traefik.port=8200'
-            - 'traefik.frontend.rule=Host:duplicati.${TRAEFIK_DOMAIN}'
-            - 'traefik.frontend.auth.basic.users=${HTTP_USER}:${HTTP_PASSWORD}'
-            - 'traefik.enable=true'
-
-    attestation:
-        image: fromenje/attestation-covid-19
-        container_name: attestation-covid-19
-        restart: always
-        networks:
-            - web
-        labels:
-            - 'traefik.backend=attestation'
-            - 'traefik.port=80'
-            - 'traefik.frontend.rule=Host:attestation.${TRAEFIK_DOMAIN}'
-            - 'traefik.enable=true'
+### don't need this
+#    duplicati:
+#        image: linuxserver/duplicati
+#        container_name: duplicati
+#        restart: unless-stopped
+#        networks:
+#            - web
+#        environment:
+#            - PUID=${PUID}
+#            - PGID=${PGID}
+#            - TZ=${TZ}
+#        volumes:
+#            - configduplicati:/config
+#            - backups:/backups
+#            - alldata:/source
+#        labels:
+#            - 'traefik.backend=duplicati'
+#            - 'traefik.port=8200'
+#            - 'traefik.frontend.rule=Host:duplicati.${TRAEFIK_DOMAIN}'
+#            - 'traefik.frontend.auth.basic.users=${HTTP_USER}:${HTTP_PASSWORD}'
+#            - 'traefik.enable=true'
+### don't need this
+#    attestation:
+#        image: fromenje/attestation-covid-19
+#        container_name: attestation-covid-19
+#        restart: always
+#        networks:
+#            - web
+#        labels:
+#            - 'traefik.backend=attestation'
+#            - 'traefik.port=80'
+#            - 'traefik.frontend.rule=Host:attestation.${TRAEFIK_DOMAIN}'
+#            - 'traefik.enable=true'
 
 networks:
     webgateway:
@@ -358,14 +358,14 @@ volumes:
         driver: local-persist
         driver_opts:
             mountpoint: /data/config/jdownloader
-    confignextcloud:
-        driver: local-persist
-        driver_opts:
-            mountpoint: /data/config/nextcloud
-    nextclouddata:
-        driver: local-persist
-        driver_opts:
-            mountpoint: /data/config/nextcloud-data
+#    confignextcloud:
+#        driver: local-persist
+#        driver_opts:
+#            mountpoint: /data/config/nextcloud
+#    nextclouddata:
+#        driver: local-persist
+#        driver_opts:
+#            mountpoint: /data/config/nextcloud-data
     torrents:
         driver: local-persist
         driver_opts:
@@ -374,11 +374,11 @@ volumes:
         driver: local-persist
         driver_opts:
             mountpoint: /data/torrents/deluge
-    configduplicati:
-        driver: local-persist
-        driver_opts:
-            mountpoint: /data/config/duplicati
-    backups:
-        driver: local-persist
-        driver_opts:
-            mountpoint: /data/backups
+#    configduplicati:
+#        driver: local-persist
+#        driver_opts:
+#            mountpoint: /data/config/duplicati
+#    backups:
+#        driver: local-persist
+#        driver_opts:
+#            mountpoint: /data/backups
