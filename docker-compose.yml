@@ -33,7 +33,7 @@ services:
         environment:
             - PGID=${PGID}
             - PUID=${PUID}
-            - TZ=Europe/Paris
+            - TZ=${TZ}
         labels:
             - 'traefik.backend=deluge'
             - 'traefik.port=8112'
@@ -60,7 +60,7 @@ services:
         environment:
             - PGID=${PGID}
             - PUID=${PUID}
-            - TZ=Europe/Paris
+            - TZ=${TZ}
             - VERSION=latest
             #- VERSION=1.14.0.5470-9d51fdfaa
         labels:
@@ -83,7 +83,7 @@ services:
         environment:
             - PGID=${PGID}
             - PUID=${PUID}
-            - TZ=Europe/Paris
+            - TZ=${TZ}
         labels:
             - 'traefik.backend=jackett'
             - 'traefik.port=9117'
@@ -104,7 +104,7 @@ services:
         environment:
             - PGID=${PGID}
             - PUID=${PUID}
-            - TZ=Europe/Paris
+            - TZ=${TZ}
         labels:
             - 'traefik.backend=sonarr'
             - 'traefik.port=8989'
@@ -125,7 +125,7 @@ services:
         environment:
             - PGID=${PGID}
             - PUID=${PUID}
-            - TZ=Europe/Paris
+            - TZ=${TZ}
         labels:
             - 'traefik.backend=radarr'
             - 'traefik.port=7878'
@@ -145,7 +145,7 @@ services:
         environment:
             - PGID=${PGID}
             - PUID=${PUID}
-            - TZ=Europe/Paris
+            - TZ=${TZ}
         labels:
             - 'traefik.backend=bazarr'
             - 'traefik.port=6767'
@@ -165,7 +165,7 @@ services:
         environment:
             - PGID=${PGID}
             - PUID=${PUID}
-            - TZ=Europe/Paris
+            - TZ=${TZ}
         labels:
             - 'traefik.backend=lidarr'
             - 'traefik.port=8686'
@@ -185,7 +185,7 @@ services:
         environment:
             - PGID=${PGID}
             - PUID=${PUID}
-            - TZ=Europe/Paris
+            - TZ=${TZ}
         labels:
             - 'traefik.tautulli.backend=tautulli'
             - 'traefik.tautulli.port=8181'
@@ -203,7 +203,7 @@ services:
         environment:
             - USER_ID=${PUID}
             - GROUP_ID=${PGID}
-            - TZ=Europe/Paris
+            - TZ=${TZ}
         labels:
             - 'traefik.backend=jdownloader'
             - 'traefik.port=5800'
@@ -225,7 +225,7 @@ services:
         environment:
             - GID=${PGID}
             - UID=${PUID}
-            - TZ=Europe/Paris
+            - TZ=${TZ}
             - ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
             - ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
             - DOMAIN=nextcloud.${TRAEFIK_DOMAIN}
@@ -287,7 +287,7 @@ services:
         environment:
             - PUID=${PUID}
             - PGID=${PGID}
-            - TZ=Europe/Paris
+            - TZ=${TZ}
         volumes:
             - configduplicati:/config
             - backups:/backups
