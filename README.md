@@ -16,11 +16,11 @@ seedbox and personal media server.
 | Jackett              | jackett.yourdomain.com     | [linuxserver/jackett](https://hub.docker.com/r/linuxserver/jackett)    | *latest*                | Tracker indexer     |
 | JDownloader          | jdownloader.yourdomain.com | [jlesage/jdownloader-2](https://hub.docker.com/r/jlesage/jdownloader-2)| *latest*                | Direct downloader   |
 | Tautulli (plexPy)    | tautulli.yourdomain.com    | [linuxserver/tautulli](https://hub.docker.com/r/linuxserver/tautulli)  | *latest*                | Plex stats and admin|
-#| NextCloud            | nextcloud.yourdomain.com   | [wonderfall/nextcloud](https://hub.docker.com/r/wonderfall/nextcloud)  | *latest*                | Files management    |
+| <s>NextCloud            | nextcloud.yourdomain.com   | [wonderfall/nextcloud](https://hub.docker.com/r/wonderfall/nextcloud)  | *latest*                | Files management    </s>|
 | Portainer            | portainer.yourdomain.com   | [portainer/portainer](https://hub.docker.com/r/portainer/portainer)    | *latest*                | Container management|
 | Netdata              | netdata.yourdomain.com     | [netdata/netdata](https://hub.docker.com/r/netdata/netdata)            | *latest*                | Server monitoring   |
-#| Duplicati            | duplicati.yourdomain.com   | [linuxserver/duplicati](https://hub.docker.com/r/linuxserver/duplicati)| *latest*                | Backups             |
-#| Attestation COVID-19 | attestation.yourdomain.com | [fromenje/attestation-covid-19](https://hub.docker.com/r/fromenje/attestation-covid-19) | *latest* | (France) Attestation de déplacement, mémorise les champs dans le navigateur |
+| <s>Duplicati            | duplicati.yourdomain.com   | [linuxserver/duplicati](https://hub.docker.com/r/linuxserver/duplicati)| *latest*                | Backups             |
+| Attestation COVID-19 | attestation.yourdomain.com | [fromenje/attestation-covid-19](https://hub.docker.com/r/fromenje/attestation-covid-19) | *latest* | (France) Attestation de déplacement, mémorise les champs dans le navigateur </s>|
 
 The front-end reverse proxy (Traefik - *version1 **v1.7-alpine***) routes based on the lowest level subdomain
  (e.g. `deluge.example.com` would route to deluge). Since this is how the router
